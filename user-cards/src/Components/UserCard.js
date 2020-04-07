@@ -5,7 +5,7 @@ export default function Card(props) {
 
     return (
         <div className="User Card">
-            <img src = {props.avatar}/>
+            <img src = {props.avatar} alt = {`The profile picture of user: ${props.name}`} />
             <p>{props.location}</p>
             <div className="username">
                 <h3>Username:</h3>

@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      member: ""
+      member: "",
+      follower: ""
     };
   }
 
@@ -22,7 +23,23 @@ class App extends React.Component {
       })
       console.log(this.state.member)
     })
+
+    axios.get("https://api.github.com/users/Tusk617/followers")
+    .then(response => {
+      // console.log(response.data)
+      this.setState({
+        follower: response.data
+      })
+    })
   }
+
+  // fetchFollowers = event => {
+  //   event.preventDefault();
+  //   axios.get("https://api.github.com/users/Tusk617/followers")
+  //   .then(response => {
+  //     console.log(response)
+  //   })
+  // }
 
   render() {
   return (
