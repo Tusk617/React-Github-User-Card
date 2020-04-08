@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from "axios";
 import './App.css';
+import './index.css';
 
 //componenets
-import Card from "./Components/UserCard"
+import UserCard from "./Components/UserCard"
 import FollowerCards from "./Components/FollowerCards"
 
 class App extends React.Component {
@@ -49,20 +50,21 @@ class App extends React.Component {
         <h1>Meet The Team!</h1>
       </header>
       <div className="memberCards">
-        <Card 
+        <UserCard 
           avatar= {this.state.member.avatar_url}
           name= {this.state.member.login}
           location= {this.state.member.location}
         />
-      </div>
-      {/* <button onClick = {this.fetchFollowers}>Show followers</button> */}
-      {this.state.follower.map(person => (
-        <Card 
+        {this.state.follower.map(person => (
+        <UserCard 
           avatar= {person.avatar_url}
           name= {person.login}
           location= {person.location}
         />
       ))}
+      </div>
+      {/* <button onClick = {this.fetchFollowers}>Show followers</button> */}
+      
     </div>
   );
 }
